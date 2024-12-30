@@ -28,8 +28,15 @@ class Drinks extends StatelessWidget {
                     itemTitle: items[index]['name'],
                     itemPrice: items[index]['price']);
               }, childCount: items.length),
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2, crossAxisSpacing: 8, mainAxisSpacing: 8, childAspectRatio: 158/194))
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount:
+                      MediaQuery.of(context).orientation == Orientation.portrait
+                          ? 2
+                          : 3,
+                  crossAxisSpacing: 8,
+                  mainAxisSpacing: 8,
+                  childAspectRatio: MediaQuery.of(context).orientation == Orientation.portrait
+                          ? 158 / 194 : 1.5))
         ],
       ),
     );
